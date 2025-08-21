@@ -1,24 +1,74 @@
 ﻿<Window x:Class="WindowsShell.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="WindowsShell" Height="450" Width="800">
+        Title="WindowsShell" Height="450" Width="800"
+        Background="#FF1E1E1E" WindowStartupLocation="CenterScreen">
+
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Üdv a WindowsShell-ben!"
-                       FontSize="20"
-                       Margin="0,0,0,20"
-                       HorizontalAlignment="Center"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="363*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Width="722" Height="376" Grid.ColumnSpan="2" Margin="39,0,0,0">
+
+            <TextBlock Text="Üdv a WindowsShell-ben!" 
+                       FontSize="22" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"/>
+
+            <TextBlock Text="SzDominikk1 Industries | www.szdominikk1.com" 
+                       FontSize="16" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,5"/>
+
+            <TextBlock Text="Készítette: Szuromi Dominik László" 
+                       FontSize="12" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"/>
 
             <Button Content="Install Chocolatey"
-                    Width="200"
-                    Height="40"
-                    Margin="0,0,0,10"
-                    Click="InstallChocolatey_Click"/>
+        Width="222"
+        Height="38"
+        Margin="0,0,0,12"
+        Background="#FF6200EE"
+        Foreground="White"
+        FontWeight="Bold"
+        Click="InstallChocolatey_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                    CornerRadius="14.5"
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
 
             <Button Content="Reboot to UEFI"
-                    Width="200"
-                    Height="40"
-                    Click="RebootUEFI_Click"/>
+        Width="222"
+        Height="38"
+        Background="#FF03DAC5"
+        Foreground="Black"
+        FontWeight="Bold"
+        Click="RebootUEFI_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                    CornerRadius="14.5"
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
         </StackPanel>
     </Grid>
 </Window>

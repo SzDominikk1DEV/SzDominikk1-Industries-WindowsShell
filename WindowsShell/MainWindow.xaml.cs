@@ -18,17 +18,16 @@ namespace WindowsShell
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = "powershell.exe",
-                    Arguments = "Set-ExecutionPolicy Bypass -Scope Process -Force; " +
-                                "[System.Net.ServicePointManager]::SecurityProtocol = " +
-                                "[System.Net.ServicePointManager]::SecurityProtocol -bor 3072; " +
-                                "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
-                    Verb = "runas", // futtatás admin módban
+                    Arguments = @"Set-ExecutionPolicy Bypass -Scope Process -Force; " +
+                                @"[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; " +
+                                @"iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
+                    Verb = "runas",
                     UseShellExecute = true
                 });
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hiba történt: {ex.Message}");
+                MessageBox.Show("Hiba történt: " + ex.Message);
             }
         }
 
@@ -38,7 +37,7 @@ namespace WindowsShell
             {
                 Process.Start(new ProcessStartInfo
                 {
-                    FileName = "shutdown.exe",
+                    FileName = "shutdown",
                     Arguments = "/r /fw /t 0",
                     Verb = "runas",
                     UseShellExecute = true
@@ -46,7 +45,7 @@ namespace WindowsShell
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hiba történt: {ex.Message}");
+                MessageBox.Show("Hiba történt: " + ex.Message);
             }
         }
     }
