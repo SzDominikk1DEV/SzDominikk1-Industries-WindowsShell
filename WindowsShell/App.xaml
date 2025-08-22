@@ -8,6 +8,7 @@
             <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Cursor" Value="Hand" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -33,6 +34,7 @@
 
         <Style TargetType="CheckBox">
             <Setter Property="Foreground" Value="White" />
+            <Setter Property="Cursor" Value="Hand" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="CheckBox">
@@ -66,5 +68,35 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Storyboard x:Key="SuccessAnimation">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" 
+                                          Storyboard.TargetName="NotificationBorder">
+                <EasingColorKeyFrame KeyTime="0:0:0" Value="#FF4CAF50"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FF4CAF50"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="Transparent"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" 
+                                           Storyboard.TargetName="NotificationBorder">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="ErrorAnimation">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" 
+                                          Storyboard.TargetName="NotificationBorder">
+                <EasingColorKeyFrame KeyTime="0:0:0" Value="#FFF44336"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FFF44336"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="Transparent"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" 
+                                           Storyboard.TargetName="NotificationBorder">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Application.Resources>
 </Application>

@@ -10,5 +10,6 @@ namespace WindowsShell
 {
     public partial class App : Application
     {
+
     }
 }
