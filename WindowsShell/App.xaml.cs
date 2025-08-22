@@ -8,9 +8,6 @@ using System.Windows;
 
 namespace WindowsShell
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
     }
